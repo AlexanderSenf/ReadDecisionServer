@@ -7,12 +7,11 @@ EXPERIMENTAL ALPHA VERSION
 # Setup
 
 This project depends on BWA (https://github.com/lh3/bwa, to generate the index files) and JBWA (https://github.com/lindenb/jbwa, to provide Java JNI mappings for BWA).
-This repository comes with pre-compiled binaries for Linux in the /store dirctory.
 
 The JBWA project provides a file named `libbwajni.so` which is required to run the server (it is in the /jni folder). This file must be in the in the `java.library.path`, or it must be specified via `-Djava.library.path={path}` upon starting the server (see example below).
 I tend to copy that file into a new directory `/usr/lib/jni` and then the `-Djava.library.path` option is not necessary.
 
-You can build it from source using `ant package-for-store` and this will overwrite the jar file in /store.
+You can build it from source using `ant` and this will write the Zeuss.jar file in /dist.
 
 # Start
 

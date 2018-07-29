@@ -70,29 +70,14 @@
     nbproject/build-impl.xml file. 
 
     -->
-        <target name="jar">
-            <jar destfile="test.jar">
-                <fileset dir="lib/" includes="**/*.jar" />
-            </jar>
-        </target>
-        <target name="package-for-store" depends="jar">
+    <target name="-post-jar">
 
-        <!-- Change the value of this property to be the name of your JAR,
-             minus the .jar extension. It should not have spaces.
-             <property name="store.jar.name" value="MyJarName"/>
-        -->
         <property name="store.jar.name" value="Zeuss"/>
 
-
-        <!-- don't edit below this line -->
-
-        <property name="store.dir" value="store"/>
+        <property name="store.dir" value="dist"/>
         <property name="store.jar" value="${store.dir}/${store.jar.name}.jar"/>
 
         <echo message="Packaging ${application.title} into a single JAR at ${store.jar}"/>
-
-        <delete dir="${store.dir}"/>
-        <mkdir dir="${store.dir}"/>
 
         <jar destfile="${store.dir}/temp_final.jar" filesetmanifest="skip">
             <zipgroupfileset dir="dist" includes="*.jar"/>
@@ -109,6 +94,7 @@
         </zip>
 
         <delete file="${store.dir}/temp_final.jar"/>
-
-    </target>    
+        <delete dir="${store.dir}/lib"/>
+        <delete file="${store.dir}/README.TXT"/>
+    </target>
 </project>
